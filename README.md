@@ -1,6 +1,15 @@
 # redis_helper
 Little command-line library to send/receive data to/from a Redis backend.
 
+## Installation
+
+*redis_helper* is a Python 3 library, which you can install in virtual
+environments as follows:
+
+```commandline
+pip install redis_helper
+```
+
 ## Utilities
 
 ### Load
