@@ -1,13 +1,13 @@
-# redis_helper
+# simple-redis-helper
 Little command-line library to send/receive data to/from a Redis backend.
 
 ## Installation
 
-*redis_helper* is a Python 3 library, which you can install in virtual
+*simple-redis-helper* is a Python 3 library, which you can install in virtual
 environments as follows:
 
 ```commandline
-pip install redis_helper
+pip install simple-redis-helper
 ```
 
 ## Utilities
@@ -17,7 +17,7 @@ pip install redis_helper
 Uploads a file into the Redis backend.
 
 ```
-usage: rh-load [-h] [-H HOST] [-p PORT] [-d DB] -k KEY -f FILE
+usage: srh-load [-h] [-H HOST] [-p PORT] [-d DB] -k KEY -f FILE
 
 Loads a file into Redis under the specified key.
 
@@ -37,7 +37,7 @@ optional arguments:
 Saves the content of a key in the Redis backend to a file.
 
 ```
-usage: rh-save [-h] [-H HOST] [-p PORT] [-d DB] -k KEY [-f FILE] [-s]
+usage: srh-save [-h] [-H HOST] [-p PORT] [-d DB] -k KEY [-f FILE] [-s]
 
 Saves the content from a Redis key in the specified file.
 
@@ -60,7 +60,7 @@ optional arguments:
 Broadcasts the content of the specified on a Redis channel.
 
 ```
-usage: rh-broadcast [-h] [-H HOST] [-p PORT] [-d DB] -c CHANNEL -f FILE
+usage: srh-broadcast [-h] [-H HOST] [-p PORT] [-d DB] -c CHANNEL -f FILE
 
 Loads a file and broadcasts its content to the specified Redis channel.
 
@@ -81,7 +81,7 @@ optional arguments:
 Listens to messages being broadcast on a Redis channel.
 
 ```
-usage: rh-listen [-h] [-H HOST] [-p PORT] [-d DB] -c CHANNEL
+usage: srh-listen [-h] [-H HOST] [-p PORT] [-d DB] -c CHANNEL
 
 Listens to the specified channel for messages to come through and outputs them
 on stdout.

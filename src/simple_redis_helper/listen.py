@@ -11,26 +11,30 @@ def main(args=None):
     :type args: list
     """
     parser = argparse.ArgumentParser(
-        prog="redis_helper-save",
-        description="Saves the content from a Redis key in the specified file.",
+        prog="simple_redis_helper-listen",
+        description="Listens to the specified channel for messages to come through and outputs them on stdout.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-H', '--host', metavar='HOST', required=False, default="localhost", help='The redis server to connect to')
     parser.add_argument('-p', '--port', metavar='PORT', required=False, default=6379, type=int, help='The port the redis server is listening on')
     parser.add_argument('-d', '--database', metavar='DB', required=False, default=0, type=int, help='The redis database to use')
-    parser.add_argument('-k', '--key', metavar='KEY', required=True, default=None, help='The key to retrieve')
-    parser.add_argument('-f', '--file', metavar='FILE', required=False, default=None, help='The file to save the content in. Outputs the content to stdout if not provided.')
-    parser.add_argument('-s', '--convert_to_string', action='store_true', help='Whether to convert the retrieved bytes to string')
+    parser.add_argument('-c', '--channel', metavar='CHANNEL', required=True, default=None, help='The channel to broadcast the content on')
+    parser.add_argument('-D', '--data_only', action='store_true', help='Whether to output only the message data')
+    parser.add_argument('-s', '--convert_to_string', action='store_true', help='Whether to convert the message data to string (requires --data_only)')
     parsed = parser.parse_args(args=args)
 
     r = redis.Redis(host=parsed.host, port=parsed.port, db=parsed.database)
-    content = r.get(parsed.key)
-    if parsed.convert_to_string:
-        content = content.decode()
-    if parsed.file is None:
-        print(content)
-    else:
-        with open(parsed.file, "w") as f:
-            f.write(content)
+
+    def anon_handler(message):
+        data = message
+        if parsed.data_only:
+            data = message['data']
+            if parsed.convert_to_string:
+                data = data.decode()
+        print(data)
+
+    p = r.pubsub()
+    p.psubscribe(**{parsed.channel: anon_handler})
+    p.run_in_thread(sleep_time=0.001)
 
 
 def sys_main():

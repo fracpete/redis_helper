@@ -13,7 +13,7 @@ def _read(f):
 
 
 setup(
-    name="redit_helper",
+    name="simple-redis-helper",
     description="Command-line utilities to for sending/receiving data to/from a Redis backend.",
     long_description=(
         _read('DESCRIPTION.rst') + b'\n' +
@@ -30,7 +30,7 @@ setup(
         '': 'src'
     },
     packages=[
-      'redis_helper',
+      'simple_redis_helper',
     ],
     version="0.0.1",
     author='Peter Reutemann',
@@ -40,10 +40,10 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "rh-load=redis_helper.load:sys_main",
-            "rh-save=redis_helper.save:sys_main",
-            "rh-broadcast=redis_helper.broadcast:sys_main",
-            "rh-listen=redis_helper.listen:sys_main",
+            "srh-load=simple_redis_helper.load:sys_main",
+            "srh-save=simple_redis_helper.save:sys_main",
+            "srh-broadcast=simple_redis_helper.broadcast:sys_main",
+            "srh-listen=simple_redis_helper.listen:sys_main",
         ]
     }
 )

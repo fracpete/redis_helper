@@ -23,5 +23,5 @@ Steps:
 
 * start new release (version: `vX.Y.Z`)
 * enter release notes, i.e., significant changes since last release
-* upload `redis_helper-X.Y.Z.tar.gz` previously generated with `setyp.py`
+* upload `simple-redis-helper-X.Y.Z.tar.gz` previously generated with `setyp.py`
 * publish

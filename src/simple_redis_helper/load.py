@@ -11,20 +11,20 @@ def main(args=None):
     :type args: list
     """
     parser = argparse.ArgumentParser(
-        prog="redis_helper-broadcast",
-        description="Loads a file and broadcasts its content to the specified Redis channel.",
+        prog="simple_redis_helper-load",
+        description="Loads a file into Redis under the specified key.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-H', '--host', metavar='HOST', required=False, default="localhost", help='The redis server to connect to')
     parser.add_argument('-p', '--port', metavar='PORT', required=False, default=6379, type=int, help='The port the redis server is listening on')
     parser.add_argument('-d', '--database', metavar='DB', required=False, default=0, type=int, help='The redis database to use')
-    parser.add_argument('-c', '--channel', metavar='CHANNEL', required=True, default=None, help='The channel to broadcast the content on')
+    parser.add_argument('-k', '--key', metavar='KEY', required=True, default=None, help='The key to store the file content under')
     parser.add_argument('-f', '--file', metavar='FILE', required=True, default=None, help='The file to load into Redis')
     parsed = parser.parse_args(args=args)
 
     r = redis.Redis(host=parsed.host, port=parsed.port, db=parsed.database)
     with open(parsed.file, "r") as f:
         content = f.read()
-        r.publish(parsed.channel, content)
+        r.set(parsed.key, content)
 
 
 def sys_main():
