@@ -57,10 +57,11 @@ optional arguments:
 
 ### Broadcast
 
-Broadcasts the content of the specified on a Redis channel.
+For broadcasts data on a Redis channel.
 
 ```
-usage: srh-broadcast [-h] [-H HOST] [-p PORT] [-d DB] -c CHANNEL -f FILE
+usage: simple_redis_helper-broadcast [-h] [-H HOST] [-p PORT] [-d DB] -c
+                                     CHANNEL [-f FILE] [-b] [-s STR]
 
 Loads a file and broadcasts its content to the specified Redis channel.
 
@@ -73,7 +74,11 @@ optional arguments:
   -c CHANNEL, --channel CHANNEL
                         The channel to broadcast the content on (default:
                         None)
-  -f FILE, --file FILE  The file to load into Redis (default: None)
+  -f FILE, --file FILE  The file to load into Redis (if not using a string)
+                        (default: None)
+  -b, --binary          Whether to treat the file as binary (default: False)
+  -s STR, --string STR  The string to load into Redis (if not reading a file)
+                        (default: None)
 ```
 
 ### Listen
