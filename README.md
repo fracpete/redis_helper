@@ -86,10 +86,11 @@ optional arguments:
 Listens to messages being broadcast on a Redis channel.
 
 ```
-usage: srh-listen [-h] [-H HOST] [-p PORT] [-d DB] -c CHANNEL
+usage: simple_redis_helper-listen [-h] [-H HOST] [-p PORT] [-d DB] -c CHANNEL
+                                  [-D] [-s] [-o DIR] [-f FORMAT]
 
 Listens to the specified channel for messages to come through and outputs them
-on stdout.
+on stdout if no output directory provided.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -100,4 +101,17 @@ optional arguments:
   -c CHANNEL, --channel CHANNEL
                         The channel to broadcast the content on (default:
                         None)
+  -D, --data_only       Whether to output only the message data (default:
+                        False)
+  -s, --convert_to_string
+                        Whether to convert the message data to string
+                        (requires --data_only) (default: False)
+  -o DIR, --output_dir DIR
+                        The directory to store the received messages/data in
+                        (default: None)
+  -f FORMAT, --file_format FORMAT
+                        the format to use for the output files (when using '--
+                        output_dir'), see: https://docs.python.org/3/library/d
+                        atetime.html#strftime-and-strptime-format-codes
+                        (default: %Y%m%d_%H%M%S.%f.dat)
 ```
