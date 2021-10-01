@@ -10,6 +10,20 @@ environments as follows:
 pip install simple-redis-helper
 ```
 
+## Redis and Docker
+
+You can start Redis through docker on a host as follows:
+
+```commandline
+docker run --name=redis-devel --publish=6379:6379 --hostname=redis --restart=on-failure --detach redis:latest
+```
+
+For connecting other docker images to this instance, add the following to your `docker run` command:
+
+```
+--net=host
+```
+
 ## Utilities
 
 ### Load
