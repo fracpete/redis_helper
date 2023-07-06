@@ -32,7 +32,7 @@ setup(
     packages=[
       'simple_redis_helper',
     ],
-    version="0.1.2",
+    version="0.1.3",
     author='Peter Reutemann',
     author_email='fracpete@waikato.ac.nz',
     install_requires=[
