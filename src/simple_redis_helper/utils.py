@@ -11,11 +11,11 @@ def has_password(ns):
     :rtype: bool
     """
     if hasattr(ns, "password"):
-        if ns.redis_password is not None:
+        if ns.password is not None:
             return True
 
     if hasattr(ns, "password_env"):
-        if os.getenv(ns.redis_password_env) is not None:
+        if os.getenv(ns.password_env) is not None:
             return True
 
     return False
@@ -31,11 +31,11 @@ def get_password(ns):
     :rtype: str
     """
     if hasattr(ns, "password"):
-        if ns.redis_password is not None:
-            return ns.redis_password
+        if ns.password is not None:
+            return ns.password
 
     if hasattr(ns, "password_env"):
-        if os.getenv(ns.redis_password_env) is not None:
-            return os.getenv(ns.redis_password_env)
+        if os.getenv(ns.password_env) is not None:
+            return os.getenv(ns.password_env)
 
     return None
