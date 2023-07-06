@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.3 (2023-07-07)
+------------------
+
+- added support for supplying a password for connecting to the Redis server (`--password` or `--password_env`)
+
+
 0.1.2 (2021-10-01)
 ------------------
 

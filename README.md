@@ -31,7 +31,9 @@ For connecting other docker images to this instance, add the following to your `
 Uploads a file into the Redis backend.
 
 ```
-usage: srh-load [-h] [-H HOST] [-p PORT] [-d DB] -k KEY -f FILE
+usage: simple_redis_helper-load [-h] [-H HOST] [-p PORT] [--password PASSWORD]
+                                [--password_env PASSWORD] [-d DB] -k KEY -f
+                                FILE
 
 Loads a file into Redis under the specified key.
 
@@ -40,6 +42,11 @@ optional arguments:
   -H HOST, --host HOST  The redis server to connect to (default: localhost)
   -p PORT, --port PORT  The port the redis server is listening on (default:
                         6379)
+  --password PASSWORD   The password to use for the redis server (takes
+                        precedence over --password_env) (default: None)
+  --password_env PASSWORD
+                        The environment variable to obtain the password from
+                        to use for connecting (default: None)
   -d DB, --database DB  The redis database to use (default: 0)
   -k KEY, --key KEY     The key to store the file content under (default:
                         None)
@@ -51,7 +58,9 @@ optional arguments:
 Saves the content of a key in the Redis backend to a file.
 
 ```
-usage: srh-save [-h] [-H HOST] [-p PORT] [-d DB] -k KEY [-f FILE] [-s]
+usage: simple_redis_helper-save [-h] [-H HOST] [-p PORT] [--password PASSWORD]
+                                [--password_env PASSWORD] [-d DB] -k KEY
+                                [-f FILE] [-s]
 
 Saves the content from a Redis key in the specified file.
 
@@ -60,6 +69,11 @@ optional arguments:
   -H HOST, --host HOST  The redis server to connect to (default: localhost)
   -p PORT, --port PORT  The port the redis server is listening on (default:
                         6379)
+  --password PASSWORD   The password to use for the redis server (takes
+                        precedence over --password_env) (default: None)
+  --password_env PASSWORD
+                        The environment variable to obtain the password from
+                        to use for connecting (default: None)
   -d DB, --database DB  The redis database to use (default: 0)
   -k KEY, --key KEY     The key to retrieve (default: None)
   -f FILE, --file FILE  The file to save the content in. Outputs the content
@@ -74,7 +88,9 @@ optional arguments:
 For broadcasts data on a Redis channel.
 
 ```
-usage: simple_redis_helper-broadcast [-h] [-H HOST] [-p PORT] [-d DB] -c
+usage: simple_redis_helper-broadcast [-h] [-H HOST] [-p PORT]
+                                     [--password PASSWORD]
+                                     [--password_env PASSWORD] [-d DB] -c
                                      CHANNEL [-f FILE] [-b] [-s STR]
 
 Loads a file and broadcasts its content to the specified Redis channel.
@@ -84,6 +100,11 @@ optional arguments:
   -H HOST, --host HOST  The redis server to connect to (default: localhost)
   -p PORT, --port PORT  The port the redis server is listening on (default:
                         6379)
+  --password PASSWORD   The password to use for the redis server (takes
+                        precedence over --password_env) (default: None)
+  --password_env PASSWORD
+                        The environment variable to obtain the password from
+                        to use for connecting (default: None)
   -d DB, --database DB  The redis database to use (default: 0)
   -c CHANNEL, --channel CHANNEL
                         The channel to broadcast the content on (default:
@@ -100,7 +121,9 @@ optional arguments:
 Listens to messages being broadcast on a Redis channel.
 
 ```
-usage: simple_redis_helper-listen [-h] [-H HOST] [-p PORT] [-d DB] -c CHANNEL
+usage: simple_redis_helper-listen [-h] [-H HOST] [-p PORT]
+                                  [--password PASSWORD]
+                                  [--password_env PASSWORD] [-d DB] -c CHANNEL
                                   [-D] [-s] [-o DIR] [-f FORMAT]
 
 Listens to the specified channel for messages to come through and outputs them
@@ -111,6 +134,11 @@ optional arguments:
   -H HOST, --host HOST  The redis server to connect to (default: localhost)
   -p PORT, --port PORT  The port the redis server is listening on (default:
                         6379)
+  --password PASSWORD   The password to use for the redis server (takes
+                        precedence over --password_env) (default: None)
+  --password_env PASSWORD
+                        The environment variable to obtain the password from
+                        to use for connecting (default: None)
   -d DB, --database DB  The redis database to use (default: 0)
   -c CHANNEL, --channel CHANNEL
                         The channel to broadcast the content on (default:

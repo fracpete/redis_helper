@@ -3,6 +3,7 @@ import os
 import redis
 import traceback
 from datetime import datetime
+from simple_redis_helper.utils import get_password
 
 DATETIME_FORMAT_URL = "https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes"
 
@@ -20,6 +21,8 @@ def main(args=None):
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-H', '--host', metavar='HOST', required=False, default="localhost", help='The redis server to connect to')
     parser.add_argument('-p', '--port', metavar='PORT', required=False, default=6379, type=int, help='The port the redis server is listening on')
+    parser.add_argument('--password', metavar='PASSWORD', required=False, default=None, type=str, help='The password to use for the redis server (takes precedence over --password_env)')
+    parser.add_argument('--password_env', metavar='PASSWORD', required=False, default=None, type=str, help='The environment variable to obtain the password from to use for connecting')
     parser.add_argument('-d', '--database', metavar='DB', required=False, default=0, type=int, help='The redis database to use')
     parser.add_argument('-c', '--channel', metavar='CHANNEL', required=True, default=None, help='The channel to broadcast the content on')
     parser.add_argument('-D', '--data_only', action='store_true', help='Whether to output only the message data')
@@ -41,7 +44,7 @@ def main(args=None):
         raise Exception("Invalid timestamp format: %s\nSee: %s" % (parsed.file_format, DATETIME_FORMAT_URL)) from e
 
     # connect
-    r = redis.Redis(host=parsed.host, port=parsed.port, db=parsed.database)
+    r = redis.Redis(host=parsed.host, port=parsed.port, db=parsed.database, password=get_password(parsed))
 
     # handler for listening/outputting
     def anon_handler(message):
