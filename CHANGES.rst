@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.5 (2023-07-10)
+------------------
+
+- fixed password support when accessing environment variable
+
+
 0.1.4 (2023-07-07)
 ------------------
 

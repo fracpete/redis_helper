@@ -15,8 +15,9 @@ def has_password(ns):
             return True
 
     if hasattr(ns, "password_env"):
-        if os.getenv(ns.password_env) is not None:
-            return True
+        if ns.password_env is not None:
+            if os.getenv(ns.password_env) is not None:
+                return True
 
     return False
 
@@ -35,7 +36,8 @@ def get_password(ns):
             return ns.password
 
     if hasattr(ns, "password_env"):
-        if os.getenv(ns.password_env) is not None:
-            return os.getenv(ns.password_env)
+        if ns.password_env is not None:
+            if os.getenv(ns.password_env) is not None:
+                return os.getenv(ns.password_env)
 
     return None
