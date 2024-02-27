@@ -157,3 +157,25 @@ optional arguments:
                         atetime.html#strftime-and-strptime-format-codes
                         (default: %Y%m%d_%H%M%S.%f.dat)
 ```
+
+### Ping
+
+```
+usage: srh-ping [-h] [-H HOST] [-p PORT] [--password PASSWORD]
+                [--password_env PASSWORD] [-d DB]
+
+Pings the redis host.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -H HOST, --host HOST  The redis server to connect to (default: localhost)
+  -p PORT, --port PORT  The port the redis server is listening on (default:
+                        6379)
+  --password PASSWORD   The password to use for the redis server (takes
+                        precedence over --password_env) (default: None)
+  --password_env PASSWORD
+                        The environment variable to obtain the password from
+                        to use for connecting (default: None)
+  -d DB, --database DB  The redis database to use (default: 0)
+```
+
