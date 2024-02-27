@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.6 (????-??-??)
+0.1.6 (2024-02-27)
 ------------------
 
 - using `srh-` prefix in the argparser's `prog` parameter now
