@@ -31,7 +31,7 @@ For connecting other docker images to this instance, add the following to your `
 Uploads a file into the Redis backend.
 
 ```
-usage: simple_redis_helper-load [-h] [-H HOST] [-p PORT] [--password PASSWORD]
+usage: srh-load [-h] [-H HOST] [-p PORT] [--password PASSWORD]
                                 [--password_env PASSWORD] [-d DB] -k KEY -f
                                 FILE
 
@@ -58,7 +58,7 @@ optional arguments:
 Saves the content of a key in the Redis backend to a file.
 
 ```
-usage: simple_redis_helper-save [-h] [-H HOST] [-p PORT] [--password PASSWORD]
+usage: srh-save [-h] [-H HOST] [-p PORT] [--password PASSWORD]
                                 [--password_env PASSWORD] [-d DB] -k KEY
                                 [-f FILE] [-s]
 
@@ -88,7 +88,7 @@ optional arguments:
 For broadcasts data on a Redis channel.
 
 ```
-usage: simple_redis_helper-broadcast [-h] [-H HOST] [-p PORT]
+usage: srh-broadcast [-h] [-H HOST] [-p PORT]
                                      [--password PASSWORD]
                                      [--password_env PASSWORD] [-d DB] -c
                                      CHANNEL [-f FILE] [-b] [-s STR]
@@ -121,7 +121,7 @@ optional arguments:
 Listens to messages being broadcast on a Redis channel.
 
 ```
-usage: simple_redis_helper-listen [-h] [-H HOST] [-p PORT]
+usage: srh-listen [-h] [-H HOST] [-p PORT]
                                   [--password PASSWORD]
                                   [--password_env PASSWORD] [-d DB] -c CHANNEL
                                   [-D] [-s] [-o DIR] [-f FORMAT]
