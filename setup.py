@@ -44,6 +44,7 @@ setup(
             "srh-save=simple_redis_helper.save:sys_main",
             "srh-broadcast=simple_redis_helper.broadcast:sys_main",
             "srh-listen=simple_redis_helper.listen:sys_main",
+            "srh-ping=simple_redis_helper.ping:sys_main",
         ]
     }
 )
