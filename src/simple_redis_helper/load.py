@@ -12,7 +12,7 @@ def main(args=None):
     :type args: list
     """
     parser = argparse.ArgumentParser(
-        prog="simple_redis_helper-load",
+        prog="srh-load",
         description="Loads a file into Redis under the specified key.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-H', '--host', metavar='HOST', required=False, default="localhost", help='The redis server to connect to')

@@ -16,7 +16,7 @@ def main(args=None):
     :type args: list
     """
     parser = argparse.ArgumentParser(
-        prog="simple_redis_helper-listen",
+        prog="srh-listen",
         description="Listens to the specified channel for messages to come through and outputs them on stdout if no output directory provided.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-H', '--host', metavar='HOST', required=False, default="localhost", help='The redis server to connect to')

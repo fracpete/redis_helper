@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.1.6 (????-??-??)
+------------------
+
+- using `srh-` prefix in the argparser's `prog` parameter now
+- added `srh-ping` command to check server availability
+
+
 0.1.5 (2023-07-10)
 ------------------
 

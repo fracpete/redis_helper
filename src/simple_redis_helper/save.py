@@ -12,7 +12,7 @@ def main(args=None):
     :type args: list
     """
     parser = argparse.ArgumentParser(
-        prog="simple_redis_helper-save",
+        prog="srh-save",
         description="Saves the content from a Redis key in the specified file.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-H', '--host', metavar='HOST', required=False, default="localhost", help='The redis server to connect to')
