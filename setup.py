@@ -13,7 +13,7 @@ def _read(f):
 
 
 setup(
-    name="simple-redis-helper",
+    name="simple_redis_helper",
     description="Command-line utilities to for sending/receiving data to/from a Redis backend.",
     long_description=(
         _read('DESCRIPTION.rst') + b'\n' +

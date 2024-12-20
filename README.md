@@ -7,7 +7,7 @@ Little command-line library to send/receive data to/from a Redis backend.
 environments as follows:
 
 ```commandline
-pip install simple-redis-helper
+pip install simple_redis_helper
 ```
 
 ## Redis and Docker
